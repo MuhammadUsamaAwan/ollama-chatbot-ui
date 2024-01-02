@@ -61,7 +61,16 @@ export function ChatSettings() {
             />
           </div>
           <div className='space-y-1'>
-            <Label htmlFor='microstat'>Mirostat</Label>
+            <Label htmlFor='microstat' className='inline-flex items-center'>
+              Mirostat
+              <span
+                className='ml-2 cursor-pointer'
+                title='Enable Mirostat sampling for controlling perplexity. (default: 0, 0 = disabled, 1 = Mirostat, 2 =
+                  Mirostat 2.0)'
+              >
+                <Icons.info className='h-4 w-4' />
+              </span>
+            </Label>
             <Input
               id='microstat'
               placeholder='Mirostat'
@@ -74,7 +83,15 @@ export function ChatSettings() {
             />
           </div>
           <div className='space-y-1'>
-            <Label htmlFor='mirostatEta'>Mirostat Eta</Label>
+            <Label htmlFor='mirostatEta' className='inline-flex items-center'>
+              Mirostat Eta
+              <span
+                className='ml-2 cursor-pointer'
+                title='Influences how quickly the algorithm responds to feedback from the generated text. A lower learning rate will result in slower adjustments, while a higher learning rate will make the algorithm more responsive. (Default: 0.1)'
+              >
+                <Icons.info className='h-4 w-4' />
+              </span>
+            </Label>
             <Input
               id='mirostatEta'
               placeholder='Mirostat Eta'
@@ -85,7 +102,15 @@ export function ChatSettings() {
             />
           </div>
           <div className='space-y-1'>
-            <Label htmlFor='mirostatTau'>Mirostat Tau</Label>
+            <Label htmlFor='mirostatTau' className='inline-flex items-center'>
+              Mirostat Tau
+              <span
+                className='ml-2 cursor-pointer'
+                title='Controls the balance between coherence and diversity of the output. A lower value will result in more focused and coherent text. (Default: 5.0)'
+              >
+                <Icons.info className='h-4 w-4' />
+              </span>
+            </Label>
             <Input
               id='mirostatTau'
               placeholder='Mirostat Tau'
@@ -96,7 +121,15 @@ export function ChatSettings() {
             />
           </div>
           <div className='space-y-1'>
-            <Label htmlFor='numCtx'>Num Ctx</Label>
+            <Label htmlFor='numCtx' className='inline-flex items-center'>
+              Num Ctx
+              <span
+                className='ml-2 cursor-pointer'
+                title='Sets the size of the context window used to generate the next token. (Default: 2048)	'
+              >
+                <Icons.info className='h-4 w-4' />
+              </span>
+            </Label>
             <Input
               id='numCtx'
               placeholder='Num Ctx'
@@ -106,7 +139,15 @@ export function ChatSettings() {
             />
           </div>
           <div className='space-y-1'>
-            <Label htmlFor='numGqa'>Num GQA</Label>
+            <Label htmlFor='numGqa' className='inline-flex items-center'>
+              Num GQA
+              <span
+                className='ml-2 cursor-pointer'
+                title='The number of GQA groups in the transformer layer. Required for some models, for example it is 8 for llama2:70b'
+              >
+                <Icons.info className='h-4 w-4' />
+              </span>
+            </Label>
             <Input
               id='numGqa'
               placeholder='Num GQA'
@@ -116,7 +157,15 @@ export function ChatSettings() {
             />
           </div>
           <div className='space-y-1'>
-            <Label htmlFor='numGpu'>Num GPU</Label>
+            <Label htmlFor='numGpu' className='inline-flex items-center'>
+              Num GPU
+              <span
+                className='ml-2 cursor-pointer'
+                title='The number of layers to send to the GPU(s). On macOS it defaults to 1 to enable metal support, 0 to disable.'
+              >
+                <Icons.info className='h-4 w-4' />
+              </span>
+            </Label>
             <Input
               id='numGpu'
               placeholder='Num GPU'
@@ -126,7 +175,15 @@ export function ChatSettings() {
             />
           </div>
           <div className='space-y-1'>
-            <Label htmlFor='numThread'>Num Thread</Label>
+            <Label htmlFor='numThread' className='inline-flex items-center'>
+              Num Thread
+              <span
+                className='ml-2 cursor-pointer'
+                title='Sets the number of threads to use during computation. By default, Ollama will detect this for optimal performance. It is recommended to set this value to the number of physical CPU cores your system has (as opposed to the logical number of cores).'
+              >
+                <Icons.info className='h-4 w-4' />
+              </span>
+            </Label>
             <Input
               id='numThread'
               placeholder='Num Thread'
@@ -136,7 +193,15 @@ export function ChatSettings() {
             />
           </div>
           <div className='space-y-1'>
-            <Label htmlFor='repeatLastN'>Repeat Last N</Label>
+            <Label htmlFor='repeatLastN' className='inline-flex items-center'>
+              Repeat Last N
+              <span
+                className='ml-2 cursor-pointer'
+                title='Sets how far back for the model to look back to prevent repetition. (Default: 64, 0 = disabled, -1 = num_ctx)	'
+              >
+                <Icons.info className='h-4 w-4' />
+              </span>
+            </Label>
             <Input
               id='repeatLastN'
               placeholder='Repeat Last N'
@@ -146,7 +211,15 @@ export function ChatSettings() {
             />
           </div>
           <div className='space-y-1'>
-            <Label htmlFor='repeatPenalty'>Repeat Penalty</Label>
+            <Label htmlFor='repeatPenalty' className='inline-flex items-center'>
+              Repeat Penalty
+              <span
+                className='ml-2 cursor-pointer'
+                title='Sets how strongly to penalize repetitions. A higher value (e.g., 1.5) will penalize repetitions more strongly, while a lower value (e.g., 0.9) will be more lenient. (Default: 1.1)'
+              >
+                <Icons.info className='h-4 w-4' />
+              </span>
+            </Label>
             <Input
               id='repeatPenalty'
               placeholder='Repeat Penalty'
@@ -157,7 +230,15 @@ export function ChatSettings() {
             />
           </div>
           <div className='space-y-1'>
-            <Label htmlFor='temperature'>Temperature</Label>
+            <Label htmlFor='temperature' className='inline-flex items-center'>
+              Temperature
+              <span
+                className='ml-2 cursor-pointer'
+                title='The temperature of the model. Increasing the temperature will make the model answer more creatively. (Default: 0.8)'
+              >
+                <Icons.info className='h-4 w-4' />
+              </span>
+            </Label>
             <Input
               id='temperature'
               placeholder='Temperature'
@@ -168,7 +249,15 @@ export function ChatSettings() {
             />
           </div>
           <div className='space-y-1'>
-            <Label htmlFor='tfsZ'>Tfs Z</Label>
+            <Label htmlFor='tfsZ' className='inline-flex items-center'>
+              Tfs Z
+              <span
+                className='ml-2 cursor-pointer'
+                title='Tail free sampling is used to reduce the impact of less probable tokens from the output. A higher value (e.g., 2.0) will reduce the impact more, while a value of 1.0 disables this setting. (default: 1)'
+              >
+                <Icons.info className='h-4 w-4' />
+              </span>
+            </Label>
             <Input
               id='tfsZ'
               placeholder='Tfs Z'
@@ -179,7 +268,15 @@ export function ChatSettings() {
             />
           </div>
           <div className='space-y-1'>
-            <Label htmlFor='topK'>Top K</Label>
+            <Label htmlFor='topK' className='inline-flex items-center'>
+              Top K
+              <span
+                className='ml-2 cursor-pointer'
+                title='Reduces the probability of generating nonsense. A higher value (e.g. 100) will give more diverse answers, while a lower value (e.g. 10) will be more conservative. (Default: 40)'
+              >
+                <Icons.info className='h-4 w-4' />
+              </span>
+            </Label>
             <Input
               id='topK'
               placeholder='Top K'
@@ -189,7 +286,15 @@ export function ChatSettings() {
             />
           </div>
           <div className='space-y-1'>
-            <Label htmlFor='topP'>Top P</Label>
+            <Label htmlFor='topP' className='inline-flex items-center'>
+              Top P
+              <span
+                className='ml-2 cursor-pointer'
+                title='Works together with top-k. A higher value (e.g., 0.95) will lead to more diverse text, while a lower value (e.g., 0.5) will generate more focused and conservative text. (Default: 0.9)'
+              >
+                <Icons.info className='h-4 w-4' />
+              </span>
+            </Label>
             <Input
               id='topP'
               placeholder='Top P'
