@@ -8,7 +8,7 @@ export function useIsScrolledToBottom(ref: React.RefObject<HTMLElement>) {
       if (ref.current) {
         const { scrollTop, scrollHeight, clientHeight } = ref.current;
 
-        const atBottom = scrollTop + clientHeight >= scrollHeight - 1;
+        const atBottom = scrollTop + clientHeight >= (scrollHeight - 1) * 0.95;
         setIsScrolledToBottom(atBottom);
       }
     };

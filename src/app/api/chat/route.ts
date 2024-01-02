@@ -1,8 +1,11 @@
 import { StreamingTextResponse, type Message } from 'ai';
+import { type ChatOllamaInput } from 'langchain/chat_models/ollama';
 import { PromptTemplate } from 'langchain/prompts';
 import { BytesOutputParser } from 'langchain/schema/output_parser';
 
 import { getChatModel } from '~/lib/chat-model';
+
+export const runtime = 'edge';
 
 const formatMessage = (message: Message) => {
   return `${message.role}: ${message.content}`;
@@ -10,13 +13,12 @@ const formatMessage = (message: Message) => {
 
 export async function POST(request: Request) {
   try {
-    const { messages, model, baseUrl } = (await request.json()) as {
+    const { messages, chatSettings } = (await request.json()) as {
       messages: Message[];
-      model: string;
-      baseUrl: string;
+      chatSettings: ChatOllamaInput;
     };
-    const chatModel = getChatModel({ model, baseUrl });
-    const chat_history = messages.slice(0, -1).map(formatMessage).join('\n');
+    const chatModel = getChatModel(chatSettings);
+    const chatHistory = messages.slice(0, -1).map(formatMessage).join('\n');
     const question = messages.at(-1)?.content ?? '';
 
     const template = `
@@ -24,7 +26,7 @@ export async function POST(request: Request) {
         Format your reply using markdown. Use chat history if needed.
 
         **Chat History:**
-        {chat_history}
+        {chatHistory}
 
         **Question:**
         {question}
@@ -36,7 +38,7 @@ export async function POST(request: Request) {
     const chain = prompt.pipe(chatModel).pipe(outputParser);
 
     const stream = await chain.stream({
-      chat_history,
+      chatHistory,
       question,
     });
 

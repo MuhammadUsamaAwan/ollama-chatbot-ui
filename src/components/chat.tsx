@@ -4,19 +4,20 @@ import { useEffect, useRef } from 'react';
 import { useChat } from 'ai/react';
 import TextareaAutosize from 'react-autosize-textarea';
 
+import { useStore } from '~/lib/store';
 import { useIsScrolledToBottom } from '~/hooks/useIsScrolledToBottom';
 import { Button } from '~/components/ui/button';
 import { ChatMessage } from '~/components/chat-message';
 import { Icons } from '~/components/icons';
 
 export function Chat() {
+  const { chatSettings } = useStore();
   const messagesRef = useRef<HTMLDivElement>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const formRef = useRef<HTMLFormElement>(null);
   const { messages, input, handleInputChange, handleSubmit, isLoading } = useChat({
     body: {
-      model: 'mistral',
-      baseUrl: 'http://localhost:11434',
+      chatSettings,
     },
   });
   const isAtBottom = useIsScrolledToBottom(messagesRef);
