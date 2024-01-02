@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useTheme } from 'next-themes';
 
-import { Button } from '~/components/ui/button';
+import { useStore } from '~/lib/store';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '~/components/ui/dialog';
 import { Input } from '~/components/ui/input';
 import { Label } from '~/components/ui/label';
@@ -13,6 +13,7 @@ import { Icons } from '~/components/icons';
 export function ChatSettings() {
   const [open, setOpen] = useState(false);
   const { theme, setTheme } = useTheme();
+  const { model, baseUrl, setModel, setBaseUrl } = useStore();
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
@@ -26,14 +27,26 @@ export function ChatSettings() {
         <DialogHeader>
           <DialogTitle>Settings</DialogTitle>
         </DialogHeader>
-        <form className='space-y-4'>
+        <div className='space-y-4'>
           <div className='space-y-1'>
             <Label htmlFor='chat_model'>Chat Model</Label>
-            <Input id='chat_model' name='chat_model' placeholder='Chat Model' required />
+            <Input
+              id='chat_model'
+              name='chat_model'
+              placeholder='Chat Model'
+              value={model}
+              onChange={e => setModel(e.target.value)}
+            />
           </div>
           <div className='space-y-1'>
             <Label htmlFor='base_url'>Base Url</Label>
-            <Input id='base_url' name='base_url' placeholder='Base Url' required />
+            <Input
+              id='base_url'
+              name='base_url'
+              placeholder='Base Url'
+              value={baseUrl}
+              onChange={e => setBaseUrl(e.target.value)}
+            />
           </div>
           <div className='space-y-1'>
             <Label htmlFor='base_url'>Theme</Label>
@@ -48,10 +61,7 @@ export function ChatSettings() {
               </SelectContent>
             </Select>
           </div>
-          <Button type='submit' className='w-full'>
-            Save Changes
-          </Button>
-        </form>
+        </div>
       </DialogContent>
     </Dialog>
   );
