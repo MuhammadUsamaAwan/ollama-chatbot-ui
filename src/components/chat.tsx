@@ -13,7 +13,12 @@ export function Chat() {
   const messagesRef = useRef<HTMLDivElement>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const formRef = useRef<HTMLFormElement>(null);
-  const { messages, input, handleInputChange, handleSubmit, isLoading } = useChat();
+  const { messages, input, handleInputChange, handleSubmit, isLoading } = useChat({
+    body: {
+      model: 'mistral',
+      baseUrl: 'http://localhost:11434',
+    },
+  });
   const isAtBottom = useIsScrolledToBottom(messagesRef);
 
   useEffect(() => {

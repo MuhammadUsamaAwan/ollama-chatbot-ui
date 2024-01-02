@@ -20,12 +20,12 @@ export default function HomePage() {
               <Icons.menu />
             </Button>
           </SheetTrigger>
-          <SheetContent side='left' className='space-y-2'>
+          <SheetContent side='left'>
             <ChatSidebar />
           </SheetContent>
         </Sheet>
       </div>
-      <aside className='hidden h-screen w-64 space-y-2 border-r p-2 py-4 sm:block'>
+      <aside className='hidden h-screen w-64 border-r p-2 py-4 sm:block'>
         <ChatSidebar />
       </aside>
       <Chat />

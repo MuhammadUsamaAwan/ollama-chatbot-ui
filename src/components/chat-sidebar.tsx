@@ -1,6 +1,7 @@
 import Link from 'next/link';
 
 import { ScrollArea } from '~/components/ui/scroll-area';
+import { ChatSettings } from '~/components/chat-settings';
 import { Icons } from '~/components/icons';
 
 export function ChatSidebar() {
@@ -10,11 +11,12 @@ export function ChatSidebar() {
         <Icons.logo />
         <span className='font-semibold'>Ollama Chatbot UI</span>
       </Link>
-      <ScrollArea className='h-[calc(100dvh-158px-40px)]'>
+      <ScrollArea className='h-[calc(100dvh-80px-40px)]'>
         {/* {chatFiles.map(file => (
           <ChatFile key={file.id} file={file} chatId={chat.id} />
         ))} */}
       </ScrollArea>
+      <ChatSettings />
     </>
   );
 }
