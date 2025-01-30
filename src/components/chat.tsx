@@ -36,7 +36,7 @@ export function Chat() {
 
   return (
     <main className='flex h-screen flex-1 flex-col p-4'>
-      <div ref={messagesRef} className='mb-4 flex-1 space-y-8 overflow-y-scroll pr-4'>
+      <div ref={messagesRef} className='mb-4 flex-1 space-y-8 overflow-y-auto pr-4'>
         {messages.map(message => (
           <ChatMessage key={message.id} message={message} />
         ))}
@@ -46,7 +46,7 @@ export function Chat() {
         <TextareaAutosize
           value={input}
           onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => handleInputChange(e)}
-          placeholder='Message ChatDocs...'
+          placeholder='Message AI...'
           className='w-full resize-none rounded-lg border border-input bg-background p-3 ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2'
           maxRows={7}
           onKeyDown={e => {

@@ -24,7 +24,7 @@ export function ChatMessage({ message }: Props) {
       </Avatar>
       <div>
         <div className='font-semibold'>
-          {message.role === 'user' ? 'You' : 'ChatDocs AI'}{' '}
+          {message.role === 'user' ? 'You' : 'AI'}{' '}
           <span className='text-sm font-normal text-muted-foreground'>({relativeTime} ago)</span>
         </div>
         <MemoizedReactMarkdown
