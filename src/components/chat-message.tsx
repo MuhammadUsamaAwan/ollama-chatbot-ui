@@ -28,7 +28,7 @@ export function ChatMessage({ message }: Props) {
           <span className='text-sm font-normal text-muted-foreground'>({relativeTime} ago)</span>
         </div>
         <MemoizedReactMarkdown
-          className='prose break-words dark:prose-invert prose-p:leading-relaxed prose-pre:p-0'
+          className='prose max-w-full break-words dark:prose-invert prose-p:leading-relaxed prose-pre:p-0'
           rehypePlugins={[rehypeHighlight]}
           components={{
             p({ children }) {
